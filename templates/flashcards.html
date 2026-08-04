@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Study Buddy</title>
+    </head>
+<body>
+    <div class="header-banner">
+        <h1>Flashcards</h1>
+    </div>
+
+    {% if flashcards %}
+        {% for card in flashcards %}
+        <div class="card">
+                <strong>Front:</strong> {{ card.front }}<br>
+                <strong>Back:</strong> {{ card.back }}
+            </div>
+        {% endfor %}
+    {% else %}
+        <p>No notes loaded, or not enough content. Please go back and load notes first.</p>
+    {% endif %}
+
+    <br>
+    <a href="/">Back to Home</a>
+</body>
+</html>

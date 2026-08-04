@@ -1,0 +1,5 @@
+Python is a popular programming language created by Guido van Rossum in 1991.
+It is known for its simple and easy-to-read syntax.
+Python supports multiple programming styles such as procedural, object-oriented, and functional programming.
+Python is widely used in web development, data science, automation, and artificial intelligence.
+Python has a large standard library and a huge community of developers.

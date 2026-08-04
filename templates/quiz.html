@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Study Buddy</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    </head>
+<body>
+    <div class="header-banner">
+        <h1>Quiz</h1>
+    </div>
+
+    {% if quiz %}
+        <form action="/quiz/submit" method="POST">
+
+            {% for question in quiz %}
+                <p>
+                    <strong>Q{{ loop.index }}:</strong> {{ question.question }}<br>
+                    <input type="text" name="answer_{{ loop.index0 }}" placeholder="Your answer">
+                    <input type="hidden" name="correct_{{ loop.index0 }}" value="{{ question.answer }}">
+                </p>
+            {% endfor %}
+
+            <input type="hidden" name="total_questions" value="{{ quiz|length }}">
+
+            <button type="submit">Submit Quiz</button>
+        </form>
+    {% else %}
+        <p>No notes loaded, or not enough content. Please go back and load notes first.</p>
+    {% endif %}
+
+    <br>
+    <a href="/">Back to Home</a>
+</body>
+</html>

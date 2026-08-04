@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Study Buddy - Quiz Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="header-banner">
+        <h1>Quiz Result</h1>
+    </div>
+
+    <p><strong>Your Score: {{ score }} / {{ total }}</strong></p>
+
+    {% if score == total %}
+        <h2 style="color: #2e7d32;">🎉 AAP JEETE HO SAAT CRORE! AAP MUMBAI AA SAKTE HO 🎉</h2>
+    {% elif score == 0 %}
+        <h2 style="color: #c62828;">😅 AAP GHAR PAR HI RAHO 😅</h2>
+    {% endif %}
+
+    <h3>Answer Review:</h3>
+    {% for item in results %}
+        <p>
+            Q{{ loop.index }}: {{ item.question }}<br>
+            Your answer: {{ item.user_answer }}<br>
+            Correct answer: {{ item.correct_answer }}<br>
+            {% if item.is_correct %}
+                ✅ Correct
+            {% else %}
+                ❌ Wrong
+            {% endif %}
+        </p>
+    {% endfor %}
+
+    <br>
+    <a href="/quiz">Try Again</a> | <a href="/">Back to Home</a>
+</body>
+</html>

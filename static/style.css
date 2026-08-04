@@ -1,0 +1,108 @@
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    max-width: 750px;
+    margin: 0 auto;
+    padding: 0 20px 40px 20px;
+    background: linear-gradient(135deg, #e0f7fa, #f3e5f5);
+    color: #2c2c2c;
+}
+
+.header-banner {
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    color: white;
+    padding: 30px 25px;
+    margin: 0 -20px 25px -20px;
+    border-radius: 0 0 15px 15px;
+    text-align: center;
+}
+
+.header-banner h1 {
+    color: white;
+    margin: 0;
+    font-size: 32px;
+}
+
+.header-banner p {
+    margin: 5px 0 0 0;
+    opacity: 0.9;
+}
+
+h2 {
+    color: #6a11cb;
+    border-left: 5px solid #2575fc;
+    padding-left: 10px;
+}
+
+h3 {
+    color: #ff6f61;
+}
+
+textarea, input[type="text"], input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    box-sizing: border-box;
+    font-family: inherit;
+    border: 2px solid #d1c4e9;
+    border-radius: 6px;
+}
+
+textarea:focus, input[type="text"]:focus {
+    outline: none;
+    border-color: #6a11cb;
+}
+
+button {
+    background: linear-gradient(135deg, #ff6f61, #ff9966);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: bold;
+    margin-top: 10px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+}
+
+button:hover {
+    background: linear-gradient(135deg, #ff5a4d, #ff8952);
+}
+
+a {
+    color: #2575fc;
+    text-decoration: none;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: #6a11cb;
+}
+
+hr {
+    border: none;
+    border-top: 2px dashed #d1c4e9;
+    margin: 25px 0;
+}
+
+.card {
+    border: none;
+    border-left: 5px solid #ff9966;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 12px;
+    background-color: white;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+.status-box {
+    background-color: white;
+    padding: 10px 18px;
+    border-radius: 20px;
+    border: 2px solid #6a11cb;
+    display: inline-block;
+    font-weight: bold;
+    color: #6a11cb;
+}

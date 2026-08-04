@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Study Buddy</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    </head>
+<body>
+    <div class="header-banner">
+        <h1>Summary</h1>
+    </div>
+
+    {% if summary %}
+        <p>{{ summary }}</p>
+    {% else %}
+        <p>No notes loaded. Please go back and load notes first.</p>
+    {% endif %}
+
+    <br>
+    <a href="/">Back to Home</a>
+</body>
+</html>
