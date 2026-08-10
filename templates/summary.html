@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Study Buddy</title>
+        <title>StudyWithBuddy - Summary</title>
         <link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='logo.svg') }}">
         <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     </head>
 <body>
     <div class="navbar">
-        <div class="logo">📚 Study<span>Buddy</span></div>
+        <div class="logo">
+            <img src="{{ url_for('static', filename='logo.svg') }}" alt="StudyWithBuddy Logo">
+            StudyWith<span>Buddy</span>
+        </div>
         <div><a href="/">Home</a></div>
     </div>
 

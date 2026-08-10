@@ -12,10 +12,7 @@ def clear_screen():
 
 def show_title():
     print("=" * 40)
-    print("           STUDY BUDDY")
-    print("   Your Personal Study Assistant")
-    print("=" * 40)
-
+    print("        STUDYWITHBUDDY")
 
 def show_menu():
     status = "Loaded" if notes_text != "" else "Not loaded"
