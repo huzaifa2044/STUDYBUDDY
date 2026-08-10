@@ -80,6 +80,5 @@ def quiz_submit():
 
     return render_template("quiz_result.html", score=score, total=total, results=results)
 
-
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True, host="0.0.0.0", port=5000)

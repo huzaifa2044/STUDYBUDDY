@@ -1,34 +1,41 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Study Buddy</title>
-        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    </head>
+<head>
+    <title>Study Buddy - Quiz</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
 <body>
-    <div class="header-banner">
-        <h1>Quiz</h1>
+    <div class="navbar">
+        <div class="logo">📚 Study<span>Buddy</span></div>
+        <div><a href="/">Home</a></div>
     </div>
 
-    {% if quiz %}
-        <form action="/quiz/submit" method="POST">
+    <div class="container">
+        <div class="page-header">
+            <h1>🎯 Quiz</h1>
+        </div>
 
-            {% for question in quiz %}
-                <p>
-                    <strong>Q{{ loop.index }}:</strong> {{ question.question }}<br>
-                    <input type="text" name="answer_{{ loop.index0 }}" placeholder="Your answer">
-                    <input type="hidden" name="correct_{{ loop.index0 }}" value="{{ question.answer }}">
-                </p>
-            {% endfor %}
+        {% if quiz %}
+            <div class="section-card">
+                <form action="/quiz/submit" method="POST">
+                    {% for question in quiz %}
+                        <p>
+                            <strong>Q{{ loop.index }}:</strong> {{ question.question }}<br>
+                            <input type="text" name="answer_{{ loop.index0 }}" placeholder="Your answer">
+                            <input type="hidden" name="correct_{{ loop.index0 }}" value="{{ question.answer }}">
+                        </p>
+                    {% endfor %}
+                    <input type="hidden" name="total_questions" value="{{ quiz|length }}">
+                    <button type="submit">Submit Quiz</button>
+                </form>
+            </div>
+        {% else %}
+            <div class="section-card">
+                <p>No notes loaded, or not enough content. Please go back and load notes first.</p>
+            </div>
+        {% endif %}
 
-            <input type="hidden" name="total_questions" value="{{ quiz|length }}">
-
-            <button type="submit">Submit Quiz</button>
-        </form>
-    {% else %}
-        <p>No notes loaded, or not enough content. Please go back and load notes first.</p>
-    {% endif %}
-
-    <br>
-    <a href="/">Back to Home</a>
+        <a href="/" class="text-link">← Back to Home</a>
+    </div>
 </body>
 </html>

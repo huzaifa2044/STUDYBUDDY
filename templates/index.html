@@ -1,37 +1,55 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Study Buddy</title>
-        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    </head>
+<head>
+    <title>Study Buddy</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
 <body>
-    <div class="header-banner">
-        <h1>Study Buddy</h1>
-        <p>Your Personal Study Assistant</p>
+    <div class="navbar">
+        <div class="logo">📚 Study<span>Buddy</span></div>
+        <div>
+            <a href="/summary">Summary</a>
+            <a href="/flashcards">Flashcards</a>
+            <a href="/quiz">Quiz</a>
+        </div>
     </div>
 
-    <p><span class="status-box">Notes status: {{ status }}</span></p>
+    <div class="container">
 
-    <hr>
+        <div class="hero">
+            <h1>Study Smarter, Not Harder</h1>
+            <p>Turn your notes into summaries, quizzes, and flashcards — instantly, offline, for free.</p>
+            <div class="badge">Notes status: {{ status }}</div>
+        </div>
 
-    <h2>Load Notes</h2>
-    <form action="/load" method="POST" enctype="multipart/form-data">
+        <div class="section-card">
+            <h2>Load Your Notes</h2>
+            <form action="/load" method="POST" enctype="multipart/form-data">
+                <h3>Type your notes</h3>
+                <textarea name="typed_notes" rows="6" placeholder="Paste or type your notes here..."></textarea>
 
-        <h3>Option A: Type your notes</h3>
-        <textarea name="typed_notes" rows="6" cols="60" placeholder="Type or paste your notes here..."></textarea>
+                <h3>Or upload a .txt file</h3>
+                <input type="file" name="notes_file">
 
-        <h3>Option B: Upload a .txt file</h3>
-        <input type="file" name="notes_file">
+                <button type="submit">Load Notes</button>
+            </form>
+        </div>
 
-        <br><br>
-        <button type="submit">Load Notes</button>
-    </form>
+        <div class="feature-grid">
+            <a href="/summary" class="feature-card">
+                <div class="icon">📝</div>
+                <div class="title">Generate Summary</div>
+            </a>
+            <a href="/flashcards" class="feature-card">
+                <div class="icon">🗂️</div>
+                <div class="title">Generate Flashcards</div>
+            </a>
+            <a href="/quiz" class="feature-card">
+                <div class="icon">🎯</div>
+                <div class="title">Generate Quiz</div>
+            </a>
+        </div>
 
-    <hr>
-    <h2>Features</h2>
-    <a href="/summary">Generate Summary</a> |
-    <a href="/flashcards">Generate Flashcards</a> |
-    <a href="/quiz">Generate Quiz</a>
-
+    </div>
 </body>
 </html>

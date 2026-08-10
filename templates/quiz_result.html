@@ -5,33 +5,39 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <div class="header-banner">
-        <h1>Quiz Result</h1>
+    <div class="navbar">
+        <div class="logo">📚 Study<span>Buddy</span></div>
+        <div><a href="/">Home</a></div>
     </div>
 
-    <p><strong>Your Score: {{ score }} / {{ total }}</strong></p>
+    <div class="container">
+        <div class="page-header">
+            <h1>Quiz Result</h1>
+        </div>
 
-    {% if score == total %}
-        <h2 style="color: #2e7d32;">🎉 AAP JEETE HO SAAT CRORE! AAP MUMBAI AA SAKTE HO 🎉</h2>
-    {% elif score == 0 %}
-        <h2 style="color: #c62828;">😅 AAP GHAR PAR HI RAHO 😅</h2>
-    {% endif %}
-
-    <h3>Answer Review:</h3>
-    {% for item in results %}
-        <p>
-            Q{{ loop.index }}: {{ item.question }}<br>
-            Your answer: {{ item.user_answer }}<br>
-            Correct answer: {{ item.correct_answer }}<br>
-            {% if item.is_correct %}
-                ✅ Correct
-            {% else %}
-                ❌ Wrong
+        <div class="section-card" style="text-align: center;">
+            <h2>Your Score: {{ score }} / {{ total }}</h2>
+            {% if score == total %}
+                <h3 style="color: #2e7d32;">🎉 AAP JEETE HO SAAT CRORE! AAP MUMBAI AA SAKTE HO 🎉</h3>
+            {% elif score == 0 %}
+                <h3 style="color: #c62828;">😅 AAP GHAR PAR HI RAHO 😅</h3>
             {% endif %}
-        </p>
-    {% endfor %}
+        </div>
 
-    <br>
-    <a href="/quiz">Try Again</a> | <a href="/">Back to Home</a>
+        <div class="section-card">
+            <h2>Answer Review</h2>
+            {% for item in results %}
+                <p>
+                    Q{{ loop.index }}: {{ item.question }}<br>
+                    Your answer: {{ item.user_answer }}<br>
+                    Correct answer: {{ item.correct_answer }}<br>
+                    {% if item.is_correct %}✅ Correct{% else %}❌ Wrong{% endif %}
+                </p>
+                <hr>
+            {% endfor %}
+        </div>
+
+        <a href="/quiz" class="text-link">Try Again</a> &nbsp; <a href="/" class="text-link">Back to Home</a>
+    </div>
 </body>
 </html>

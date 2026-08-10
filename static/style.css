@@ -1,108 +1,236 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+:root {
+    --primary: #4f46e5;
+    --primary-dark: #4338ca;
+    --accent: #f59e0b;
+    --bg: #f7f8fc;
+    --card-bg: #ffffff;
+    --text-dark: #1e1b3a;
+    --text-muted: #6b7280;
+    --radius: 18px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
 body {
-    font-family: 'Segoe UI', Arial, sans-serif;
-    max-width: 750px;
-    margin: 0 auto;
-    padding: 0 20px 40px 20px;
-    background: linear-gradient(135deg, #e0f7fa, #f3e5f5);
-    color: #2c2c2c;
-}
-
-.header-banner {
-    background: linear-gradient(135deg, #6a11cb, #2575fc);
-    color: white;
-    padding: 30px 25px;
-    margin: 0 -20px 25px -20px;
-    border-radius: 0 0 15px 15px;
-    text-align: center;
-}
-
-.header-banner h1 {
-    color: white;
+    font-family: 'Poppins', 'Segoe UI', Arial, sans-serif;
     margin: 0;
-    font-size: 32px;
+    background: var(--bg);
+    color: var(--text-dark);
 }
 
-.header-banner p {
-    margin: 5px 0 0 0;
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 24px 60px 24px;
+}
+
+/* NAVBAR */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 24px;
+}
+
+.navbar .logo {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+.navbar .logo span {
+    color: var(--accent);
+}
+
+.navbar a {
+    color: var(--text-dark);
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 22px;
+    font-size: 15px;
+}
+
+.navbar a:hover {
+    color: var(--primary);
+}
+
+/* HERO */
+.hero {
+    background: linear-gradient(135deg, var(--primary), #7c6bf2);
+    border-radius: 28px;
+    padding: 56px 40px;
+    text-align: center;
+    color: white;
+    margin-bottom: 40px;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    background: rgba(255,255,255,0.08);
+    border-radius: 50%;
+    top: -80px;
+    right: -60px;
+}
+
+.hero h1 {
+    font-size: 36px;
+    margin: 0 0 10px 0;
+    font-weight: 700;
+}
+
+.hero p {
+    font-size: 16px;
     opacity: 0.9;
+    margin: 0;
 }
 
-h2 {
-    color: #6a11cb;
-    border-left: 5px solid #2575fc;
-    padding-left: 10px;
+.badge {
+    display: inline-block;
+    margin-top: 18px;
+    background: rgba(255,255,255,0.18);
+    padding: 8px 18px;
+    border-radius: 30px;
+    font-size: 13px;
+    font-weight: 600;
+    backdrop-filter: blur(4px);
 }
 
-h3 {
-    color: #ff6f61;
+/* PAGE HEADER (non-home pages) */
+.page-header {
+    text-align: center;
+    margin-bottom: 36px;
 }
 
+.page-header h1 {
+    font-size: 30px;
+    color: var(--primary);
+    margin-bottom: 4px;
+}
+
+/* CARD / SECTION */
+.section-card {
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    padding: 30px;
+    margin-bottom: 24px;
+    box-shadow: 0 6px 20px rgba(79, 70, 229, 0.08);
+}
+
+.section-card h2 {
+    margin-top: 0;
+    font-size: 20px;
+    color: var(--text-dark);
+}
+
+.section-card h3 {
+    font-size: 15px;
+    color: var(--text-muted);
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+/* FORM ELEMENTS */
 textarea, input[type="text"], input[type="file"] {
     width: 100%;
-    padding: 10px;
-    margin-top: 5px;
-    box-sizing: border-box;
+    padding: 12px 14px;
+    border-radius: 12px;
+    border: 1.5px solid #e5e7eb;
     font-family: inherit;
-    border: 2px solid #d1c4e9;
-    border-radius: 6px;
+    font-size: 14px;
+    margin-bottom: 18px;
+    background: #fafbff;
 }
 
 textarea:focus, input[type="text"]:focus {
     outline: none;
-    border-color: #6a11cb;
+    border-color: var(--primary);
+    background: white;
 }
 
 button {
-    background: linear-gradient(135deg, #ff6f61, #ff9966);
+    background: var(--primary);
     color: white;
     border: none;
-    padding: 12px 24px;
-    border-radius: 25px;
+    padding: 13px 28px;
+    border-radius: 30px;
     cursor: pointer;
     font-size: 15px;
-    font-weight: bold;
-    margin-top: 10px;
-    box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+    font-weight: 600;
+    font-family: inherit;
+    box-shadow: 0 4px 14px rgba(79, 70, 229, 0.35);
 }
 
 button:hover {
-    background: linear-gradient(135deg, #ff5a4d, #ff8952);
+    background: var(--primary-dark);
 }
 
-a {
-    color: #2575fc;
+/* FEATURE GRID */
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    margin-bottom: 24px;
+}
+
+.feature-card {
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    padding: 26px 18px;
+    text-align: center;
     text-decoration: none;
-    font-weight: bold;
-    margin-right: 10px;
+    color: var(--text-dark);
+    box-shadow: 0 6px 20px rgba(79, 70, 229, 0.08);
+    transition: transform 0.15s ease;
 }
 
-a:hover {
+.feature-card:hover {
+    transform: translateY(-4px);
+}
+
+.feature-card .icon {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.feature-card .title {
+    font-weight: 600;
+    font-size: 15px;
+}
+
+/* FLASHCARDS */
+.card {
+    background: var(--card-bg);
+    border-radius: 16px;
+    padding: 18px 20px;
+    margin-bottom: 14px;
+    box-shadow: 0 6px 20px rgba(79, 70, 229, 0.08);
+    border-left: 5px solid var(--accent);
+}
+
+/* LINKS */
+a.text-link {
+    color: var(--primary);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+a.text-link:hover {
     text-decoration: underline;
-    color: #6a11cb;
 }
 
 hr {
     border: none;
-    border-top: 2px dashed #d1c4e9;
-    margin: 25px 0;
-}
-
-.card {
-    border: none;
-    border-left: 5px solid #ff9966;
-    border-radius: 8px;
-    padding: 15px;
-    margin-bottom: 12px;
-    background-color: white;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-}
-
-.status-box {
-    background-color: white;
-    padding: 10px 18px;
-    border-radius: 20px;
-    border: 2px solid #6a11cb;
-    display: inline-block;
-    font-weight: bold;
-    color: #6a11cb;
+    border-top: 1.5px dashed #e5e7eb;
+    margin: 30px 0;
 }
